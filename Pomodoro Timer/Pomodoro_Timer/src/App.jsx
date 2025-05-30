@@ -61,7 +61,7 @@ function App() {
                 stroke-dasharray="502"
                 stroke-dashoffset={offset}
                 stroke-linecap="round"
-                class="transition-all duration-100 ease-linear"
+                class="transition-all duration-1000 ease-linear"
               />
               {
                 isPaused ?
