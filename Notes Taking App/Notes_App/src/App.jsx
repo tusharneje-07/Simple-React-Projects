@@ -6,24 +6,27 @@ function App() {
   const [count, setCount] = useState(0)
   const [curDateTime, setCurDateTime] = useState(new Date());
   const [Notes, setNotes] = useState(JSON.parse(localStorage.getItem('userNotes')) || {});
-  const [enteredNote, setEnteredNote] = useState('Enter Note Title....');
-  const [enteredNoteTitle, setEnteredNoteTitle] = useState('Enter Note Content....');
+  const [enteredNote, setEnteredNote] = useState('Enter your note here...');
+  const [enteredNoteTitle, setEnteredNoteTitle] = useState('Enter Note Title');
+  const [isNoteAvailable, setIsNoteAvailable] = useState(false);
 
 
   const handleReadNote = useCallback(() => {
     let data = localStorage.getItem('userNotes');
     if (data) {
+      setIsNoteAvailable(true);
       const parsedData = JSON.parse(data);
       setNotes(parsedData);
       console.log(`Notes read from localStorage: ${JSON.stringify(parsedData)}`);
 
     } else {
+      setIsNoteAvailable(false);
       setNotes({});
     }
-  }, [Notes]);
+  }, [Notes, isNoteAvailable]);
 
 
-  const handleAddNote = useCallback((note) => {
+  const handleAddNote = useCallback(() => {
     const data = localStorage.getItem('userNotes');
     let userNotes = data ? JSON.parse(data) : {};
     const date = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Kolkata' });
@@ -60,10 +63,14 @@ function App() {
       } else {
         console.log(`No note found with key ${key}`);
       }
+      // userNotes ? userNotes.length != 0 ? setIsNoteAvailable(false) : setIsNoteAvailable(true) : setIsNoteAvailable(true);
+      // console.log(userNotes ? 'No notes available' : 'Notes available', userNotes.length);
     } else {
       console.log('No notes found in localStorage');
+      setIsNoteAvailable(false);
+      console.log('Setting isNoteAvailable to false');
     }
-  }, [Notes]);
+  }, [Notes,isNoteAvailable]);
 
   return (
     <>
@@ -102,13 +109,9 @@ function App() {
         <div className='w-[80%] h-full flex flex-row items-start justify-start px-4 flex-wrap gap-1 overflow-auto overflow-x-hidden'>
 
           <div className="columns-1 sm:columns-2 md:columns-4 gap-4 p-4 w-full">
-            {/* {notes.map((note, i) => (
-              <div key={i} className="w-full break-inside-avoid">
-                <Note note={note} />
-              </div>
-            ))} */}
-
+            
             {
+              isNoteAvailable ?
               Object.keys(Notes).map((key, i) => (
                 <div key={i} className="w-full break-inside-avoid">
                   <Note note={[Notes[key], key]} deleteNote={(key) => {
@@ -117,6 +120,10 @@ function App() {
                   }} />
                 </div>
               ))
+              :
+              <div className="w-full text-center text-gray-400">
+                <p>No notes available. Please add a note.</p>
+              </div>
             }
           </div>
 
