@@ -33,8 +33,6 @@ export default function NoteCard({ note,deleteNote }) {
             <button className="rounded-tl-lg rounded-br-lg bg-red-100 hover:bg-red-200 w-min p-2 absolute bottom-0 right-0">
                 <svg 
                 onClick={(e) => {
-                    e.stopPropagation();
-                    console.log(`Delete note with key: ${note[1]}`);
                     deleteNote(note[1]);
 
                 }}
