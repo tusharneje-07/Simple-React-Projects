@@ -47,7 +47,7 @@ cd Simple-React-Projects/"Project Name"
 npm install
 
 # Start the development server
-npm start
+npm run dev
 ```
 
 Example:
@@ -55,7 +55,7 @@ Example:
 ```bash
 cd Simple-React-Projects/"Pomodoro Timer"
 npm install
-npm start
+npm run dev
 ```
 
 ## 💡 Why This Repo?
