@@ -50,7 +50,7 @@ function App() {
               </div>
             </div>
             <textarea name="nor_text" id="nor_text"
-              className='w-[400px] h-full p-4 text-black text-lg rounded-b-lg outline-none text-sm'
+              className='w-[400px] h-full p-4 text-black rounded-b-lg outline-none text-sm'
               placeholder='Enter text to convert to Morse Code'
               onChange={(e) => {
                 const text = e.target.value;
@@ -94,7 +94,7 @@ function App() {
             </div>
 
             <textarea name="nor_text" id="nor_text"
-              className='w-full h-full p-4 text-black text-lg rounded-b-lg outline-none text-sm'
+              className='w-full h-full p-4 text-black rounded-b-lg outline-none text-sm'
               placeholder='Output will be displayed here'
               value={morseCode}
               ref={morseRef}
