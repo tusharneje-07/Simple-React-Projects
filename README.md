@@ -14,6 +14,7 @@ Click any project to explore its source code:
 * [⏱️ Pomodoro Timer](./Pomodoro%20Timer/)
 * [📜 Random Quote Generator](./Random%20Quote%20Generator/)
 * [✊ Rock-Paper-Scissors](./Rock-Paper-Scissors/)
+* [🗓️ Age Calculator](./Age%20Calculator/)
 
 ---
 
