@@ -1,4 +1,4 @@
-# ⌛ Age Calculator
+# 📳 Morse Code Generator
 
 A simple and user-friendly react application converting normal text message to morsecode.
 
