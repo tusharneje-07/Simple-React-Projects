@@ -1,6 +1,6 @@
 # ⌛ Age Calculator
 
-A simple and user-friendly react appliication for calculating current age by taking Date of Birth and Time of Birth and Updates on each second.
+A simple and user-friendly react application converting normal text message to morsecode.
 
 
 ## 🧰 Tech Stack
@@ -11,7 +11,7 @@ A simple and user-friendly react appliication for calculating current age by tak
 
 ## 📦 Features
 
-- Show's Current Age by taking DOB and Time.
+- Convert's Alphabatic Message to Morse code Message
 
 ## 📸 Screenshot
 
@@ -24,8 +24,8 @@ A simple and user-friendly react appliication for calculating current age by tak
 
 ```bash
 git clone https://github.com/tusharneje-07/Simple-React-Projects.git
-cd Age Calculator
-cd age-calculator
+cd Morse Code Generator
+cd morse_code_generator
 ````
 
 ### 2. Install Packages
