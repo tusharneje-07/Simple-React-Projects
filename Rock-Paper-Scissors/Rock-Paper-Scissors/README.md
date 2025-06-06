@@ -1,4 +1,4 @@
-# 📜 Random Quote Generator
+# 🎮 Rock Paper Scissor Game
 
 A simple and user-friendly react application/game of Rock Paper Scissor
 
