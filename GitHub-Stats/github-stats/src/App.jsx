@@ -29,9 +29,14 @@ function App() {
       <div className="flex items-center flex-col justify-center min-h-screen bg-black/80">
         <div className='flex items-center justify-center flex-col w-full m-14 p-14'>
         <h1 className="text-xl font-bold mb-4 text-white">Last 15 Days Contributions</h1>
-        <div className="flex justify-start items-center w-full mb-4 bg-red-400">
+        <div className="flex flex-row justify-start w-full mb-4 bg-red-400 p-3 text-left align-top items-start">
           <div className='w-48 h-48 bg-white rounded-full flex items-center justify-center'>
-            <img src={setProfileURL} alt="" />
+            <img src={profileURL} alt="" />
+          </div>
+          <div className='ml-4 bg-green-400 justify-start items-start align-top flex w-max flex-col'>
+            <h2 className="text-2xl font-bold text-white">tusharneje-07</h2>
+            <p className="text-lg text-white">Current Month Contributions: {userData.currentMonthTotal || 0}</p>
+            <p className="text-lg text-white">Current Streak: {userData.currentStreak || 0} days</p>
           </div>
         </div>
         <Chart dates={userData.last15Dates} counts={userData.last15Days} />
