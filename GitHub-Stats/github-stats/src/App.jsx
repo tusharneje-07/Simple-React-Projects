@@ -1,19 +1,22 @@
 import { use, useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Chart from './components/Chat.jsx'
 
 function App() {
   const [userData, setUserData] = useState({});
+  const [profileURL, setProfileURL] = useState('');
   useEffect(() => {
-
+    fetch('https://api.github.com/users/tusharneje-07')
+    .then(response => response.json())
+    .then(data => {
+      setProfileURL(data.avatar_url);
+    })
     fetch('https://github-contributions-api.jogruber.de/v4/tusharneje-07')
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const analysis = analyzeContributions(data);
         setUserData(analysis);
-        console.log(analysis);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -26,6 +29,11 @@ function App() {
       <div className="flex items-center flex-col justify-center min-h-screen bg-black/80">
         <div className='flex items-center justify-center flex-col w-full m-14 p-14'>
         <h1 className="text-xl font-bold mb-4 text-white">Last 15 Days Contributions</h1>
+        <div className="flex justify-start items-center w-full mb-4 bg-red-400">
+          <div className='w-48 h-48 bg-white rounded-full flex items-center justify-center'>
+            <img src={setProfileURL} alt="" />
+          </div>
+        </div>
         <Chart dates={userData.last15Dates} counts={userData.last15Days} />
         </div>
       </div>
