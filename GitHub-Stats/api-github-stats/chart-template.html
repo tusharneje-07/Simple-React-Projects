@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>GitHub Chart</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      background: #fff;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="chart" width="1600" height="900"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const data = {{DATA}};
+    const labels = {{LABELS}};
+
+    const ctx = document.getElementById('chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Contributions',
+          data,
+          fill: false,
+          borderColor: '#3B82F6',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'black'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: 'black' }
+          },
+          y: {
+            ticks: { color: 'black' },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

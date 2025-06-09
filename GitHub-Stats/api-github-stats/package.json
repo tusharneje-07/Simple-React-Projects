@@ -1,0 +1,14 @@
+{
+  "name": "github-stats",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0",
+    "puppeteer": "^24.10.0"
+  }
+}
