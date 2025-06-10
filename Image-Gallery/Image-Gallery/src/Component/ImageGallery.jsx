@@ -1,18 +1,31 @@
 import React from "react";
+import Masonry from "react-masonry-css";
+import "./ImageGallery.css"; // For spacing
 
 const ImageGallery = ({ imageUrls = [] }) => {
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
+
   return (
     <div className="p-4">
-      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 ">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {imageUrls.map((url, index) => (
           <img
             key={index}
             src={url}
             alt={`Image ${index + 1}`}
-            className="w-full rounded-2xl shadow-md hover:scale-105 transition-transform duration-300"
+            className="rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
           />
         ))}
-      </div>
+      </Masonry>
     </div>
   );
 };
