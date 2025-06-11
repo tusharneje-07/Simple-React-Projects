@@ -41,3 +41,16 @@ npm install
 npm run dev
 ```
 
+# 🌐 URL // API
+You Can Use the URL in Image Tag `src`, that will disply the graph image. 
+```
+cd api-github-stats
+```
+```npm
+npm i
+npm start
+```
+You can get a canvas image on the following URL after Running the Server 
+
+http://localhost:3000/chart/`<github-username>`
+
