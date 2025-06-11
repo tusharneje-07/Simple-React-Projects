@@ -1,56 +1,74 @@
+Here’s your corrected and slightly more polished README:
+
+---
+
 # 🎮 GitHub Stats
 
-A simple and user-friendly react app that show's a Graph of GitHub Contributions
-
+A simple and user-friendly React app that displays a graph of GitHub contributions.
 
 ## 🧰 Tech Stack
 
-- HTML5
-- TailwindCSS 3
-- JavaScript (React)
+* HTML5
+* TailwindCSS 3
+* JavaScript (React)
 
 ## 📦 Features
 
-- Show's GitHub Contribution Graph of Last 15-30 Days
+* Displays GitHub Contribution Graph for the last 15-30 days.
 
 ## 📸 Screenshot
 
-![Currency Converter UI](./ss.png)
+![GitHub Stats UI](./ss2.png)
 
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/tusharneje-07/Simple-React-Projects.git
-cd GitHub-Stats
-cd github-stats
-````
-
-### 2. Install Packages
-```npm
-npm i
+cd GitHub-Stats/github-stats
 ```
-or
-```npm
+
+### 2️⃣ Install Packages
+
+Using npm:
+
+```bash
 npm install
 ```
-### 3. Run Server
-```npm
+
+### 3️⃣ Run the Development Server
+
+```bash
 npm run dev
 ```
 
-# 🌐 URL // API
-You Can Use the URL in Image Tag `src`, that will disply the graph image. 
-```
+---
+
+# 🌐 API (Image URL)
+
+You can also use the API to directly get the contribution graph image, which can be embedded in an `img` tag via the `src` attribute.
+
+### Setup API Server
+
+```bash
 cd api-github-stats
-```
-```npm
-npm i
+npm install
 npm start
 ```
-You can get a canvas image on the following URL after Running the Server 
 
-http://localhost:3000/chart/`<github-username>`
+### Usage
+
+After running the server, you can get the contribution chart image at:
+
+```
+http://localhost:3000/chart/<github-username>
+```
+
+Replace `<github-username>` with the actual GitHub username.
+
+## 📸 Screenshot
+
+![GitHub Stats UI](./ss.png)
 
