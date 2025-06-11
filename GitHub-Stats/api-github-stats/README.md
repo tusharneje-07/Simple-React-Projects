@@ -14,40 +14,21 @@ A simple and user-friendly React app that displays a graph of GitHub contributio
 
 ## 📸 Screenshot
 
-![GitHub Stats UI](./ss2.png)
+![GitHub Stats UI](./ss.png)
 
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone the repository
-
-```bash
-git clone https://github.com/tusharneje-07/Simple-React-Projects.git
-cd GitHub-Stats/github-stats
-```
-
-### 2️⃣ Install Packages
-
-Using npm:
-
-```bash
-npm install
-```
-
-### 3️⃣ Run the Development Server
-
-```bash
-npm run dev
-```
-
----
 
 # 🌐 API (Image URL)
 
 You can also use the API to directly get the contribution graph image, which can be embedded in an `img` tag via the `src` attribute.
 
-### Setup API Server
+## 🚀 Getting Started
 
+### Clone the repository
+
+```bash
+git clone https://github.com/tusharneje-07/Simple-React-Projects.git
+cd GitHub-Stats/api-github-stats
+```
 ```bash
 cd api-github-stats
 npm install
@@ -64,7 +45,4 @@ http://localhost:3000/chart/<github-username>
 
 Replace `<github-username>` with the actual GitHub username.
 
-## 📸 Screenshot
-
-![GitHub Stats UI](./ss.png)
 
