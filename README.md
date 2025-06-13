@@ -17,6 +17,8 @@ Click any project to explore its source code:
 * [🗓️ Age Calculator](./Age%20Calculator/)
 * [💱 Currency-Converter](./Currency-Converter/)
 * [📊 GitHub Stats](./GitHub-Stats/)
+- - [📊 GitHub Stats](./GitHub-Stats/github-stats/)
+- - [📊 GitHub Stats (API)](./GitHub-Stats/api-github-stats/)
 
 ---
 
