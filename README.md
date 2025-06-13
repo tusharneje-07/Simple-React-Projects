@@ -16,6 +16,7 @@ Click any project to explore its source code:
 * [✊ Rock-Paper-Scissors](./Rock-Paper-Scissors/)
 * [🗓️ Age Calculator](./Age%20Calculator/)
 * [💱 Currency-Converter](./Currency-Converter/)
+* [📊 GitHub Stats](./GitHub-Stats/)
 
 ---
 
