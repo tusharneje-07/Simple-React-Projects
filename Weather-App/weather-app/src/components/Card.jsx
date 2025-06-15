@@ -41,11 +41,11 @@ const Card = ({ temperature="Default Button", className }) => {
           </path>
         </svg>
 
-        <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 text-5xl text-center group-hover:translate-x-8 group-hover:-translate-y-16 group-hover:scale-80">
+        <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 translate-y-2 text-4xl text-center group-hover:translate-x-2 group-hover:-translate-y-16 group-hover:text-5xl">
           {temperature}
         </h4>
       </div>
-      <div className="absolute duration-300 -left-32 mt-2 group-hover:left-10">
+      <div className="absolute duration-300 -left-32 mt-2 font-sans group-hover:left-10">
         <p className="text-sm">light rain</p>
         <p className="text-sm">50% humidity</p>
       </div>

@@ -18,7 +18,7 @@ function App() {
     <>
       <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900'>
         <Card temperature={count}/>
-        <h1 className='text-white text-2xl'>{count}</h1>
+        {/* <h1 className='text-white text-2xl'>{count}</h1> */}
       </div>
     </>
   )
