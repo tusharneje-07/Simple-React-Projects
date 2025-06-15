@@ -1,22 +1,29 @@
 import React from 'react';
 
-const Card = ({ temperature="Default Button", code=0, humidity=0, className }) => {
-  return (
-    <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden bg-[#DCDFE4] w-28 h-48 dark:bg-[#22272B] rounded-3xl p-4 hover:w-56 hover:bg-blue-200 hover:dark:bg-[#0C66E4] backdrop-blur-md bg-white/30 border border-white/20 rounded-xl shadow-lg p-4">
-      <h3 className="text-xl text-center">Today</h3>
-      <div className="gap-4 relative">
-        <img src={`/icons/${getIconForWeatherCode(code,true)}`} alt="" className="w-20 scale-[110%]" />
-       
-        <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 translate-y-2 text-4xl text-center group-hover:-translate-x-2 group-hover:-translate-y-16 group-hover:text-5xl">
-          {parseInt(temperature)}°C
-        </h4>
-      </div>
-      <div className="absolute duration-300 -left-32 mt-2 font-sans group-hover:left-10">
-        <p className="text-sm">{getShortWeatherDescription(code)}</p>
-        <p className="text-sm">{humidity}% humidity</p>
-      </div>
-    </div>
-  );
+const Card = ({ temperature = 0, code = 0, humidity = 0, className }) => {
+    return (
+        <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden w-28 h-48 rounded-3xl p-4 w-56 
+  backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
+
+            <h3 className="text-xl text-center">Today</h3>
+
+            <div className="gap-4 relative">
+                <img src={`/icons/${getIconForWeatherCode(code, true)}`} alt="" className="w-20 scale-[110%]" />
+
+                <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 translate-y-2 text-center -translate-x-2 -translate-y-16 text-5xl">
+                    {parseInt(temperature)}°C
+                </h4>
+            </div>
+
+            <div className="absolute duration-300 -left-32 mt-2 font-sans left-10">
+                <p className="text-sm">{getShortWeatherDescription(code)}</p>
+                <p className="text-sm">{humidity}% humidity</p>
+            </div>
+
+        </div>
+
+
+    );
 }
 
 export default Card;

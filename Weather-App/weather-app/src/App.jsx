@@ -3,15 +3,14 @@ import Card from './components/Card'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [temp, setTemp] = useState(0)
   const [code, setCode] = useState(0)
   const [humidity, setHumidity] = useState(0)
   useEffect(() => {
     fetch("https://api.open-meteo.com/v1/forecast?latitude=18.51957&longitude=73.85535&current_weather=true&hourly=relativehumidity_2m,weathercode,temperature_2m")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        setCount(data.current_weather.temperature)
+        setTemp(data.current_weather.temperature)
         setCode(data.current_weather.weathercode)
         setHumidity(getCurrentHumidity(data.hourly))
       })
@@ -20,8 +19,8 @@ function App() {
   }, [])
   return (
     <>
-      <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900'>
-        <Card temperature={count} code={code} humidity={humidity}/>
+      <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen flex items-center justify-center'>
+        <Card temperature={temp} code={code} humidity={humidity}/>
         {/* <h1 className='text-white text-2xl'>{count}</h1> */}
       </div>
     </>
