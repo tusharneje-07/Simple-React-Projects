@@ -1,56 +1,115 @@
 import React from 'react';
 
-const Card = ({ temperature="Default Button", className }) => {
+const Card = ({ temperature="Default Button", code=0, humidity=0, className }) => {
   return (
-    <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden bg-[#DCDFE4] w-28 h-48 dark:bg-[#22272B] rounded-3xl p-4 hover:w-56 hover:bg-blue-200 hover:dark:bg-[#0C66E4]">
+    <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden bg-[#DCDFE4] w-28 h-48 dark:bg-[#22272B] rounded-3xl p-4 hover:w-56 hover:bg-blue-200 hover:dark:bg-[#0C66E4] backdrop-blur-md bg-white/30 border border-white/20 rounded-xl shadow-lg p-4">
       <h3 className="text-xl text-center">Today</h3>
       <div className="gap-4 relative">
-        <svg viewBox="0 0 64 64" xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" className="w-20 scale-[110%]">
-          <defs>
-            <linearGradient gradientUnits="userSpaceOnUse" y2="28.33" y1="19.67" x2="21.5" x1="16.5" id="b">
-              <stop stopColor="#fbbf24" offset={0} />
-              <stop stopColor="#fbbf24" offset=".45" />
-              <stop stopColor="#f59e0b" offset={1} />
-            </linearGradient>
-            <linearGradient gradientUnits="userSpaceOnUse" y2="50.8" y1="21.96" x2="39.2" x1="22.56" id="c">
-              <stop stopColor="#f3f7fe" offset={0} />
-              <stop stopColor="#f3f7fe" offset=".45" />
-              <stop stopColor="#deeafb" offset={1} />
-            </linearGradient>
-            <linearGradient gradientUnits="userSpaceOnUse" y2="48.05" y1="42.95" x2="25.47" x1="22.53" id="a">
-              <stop stopColor="#4286ee" offset={0} />
-              <stop stopColor="#4286ee" offset=".45" />
-              <stop stopColor="#0950bc" offset={1} />
-            </linearGradient>
-            <linearGradient xlinkHref="#a" y2="48.05" y1="42.95" x2="32.47" x1="29.53" id="d" />
-            <linearGradient xlinkHref="#a" y2="48.05" y1="42.95" x2="39.47" x1="36.53" id="e" />
-          </defs>
-          <circle strokeWidth=".5" strokeMiterlimit={10} stroke="#f8af18" fill="url(#b)" r={5} cy={24} cx={19} />
-          <path d="M19 15.67V12.5m0 23v-3.17m5.89-14.22l2.24-2.24M10.87 32.13l2.24-2.24m0-11.78l-2.24-2.24m16.26 16.26l-2.24-2.24M7.5 24h3.17m19.83 0h-3.17" strokeWidth={2} strokeMiterlimit={10} strokeLinecap="round" stroke="#fbbf24" fill="none">
-            <animateTransform values="0 19 24; 360 19 24" type="rotate" repeatCount="indefinite" dur="45s" attributeName="transform" />
-          </path>
-          <path d="M46.5 31.5h-.32a10.49 10.49 0 00-19.11-8 7 7 0 00-10.57 6 7.21 7.21 0 00.1 1.14A7.5 7.5 0 0018 45.5a4.19 4.19 0 00.5 0v0h28a7 7 0 000-14z" strokeWidth=".5" strokeMiterlimit={10} stroke="#e6effc" fill="url(#c)" />
-          <path d="M24.39 43.03l-.78 4.94" strokeWidth={2} strokeMiterlimit={10} strokeLinecap="round" stroke="url(#a)" fill="none">
-            <animateTransform values="1 -5; -2 10" type="translate" repeatCount="indefinite" dur="0.7s" attributeName="transform" />
-          </path>
-          <path d="M31.39 43.03l-.78 4.94" strokeWidth={2} strokeMiterlimit={10} strokeLinecap="round" stroke="url(#d)" fill="none">
-            <animateTransform values="1 -5; -2 10" type="translate" repeatCount="indefinite" dur="0.7s" begin="-0.4s" attributeName="transform" />
-          </path>
-          <path d="M38.39 43.03l-.78 4.94" strokeWidth={2} strokeMiterlimit={10} strokeLinecap="round" stroke="url(#e)" fill="none">
-            <animateTransform values="1 -5; -2 10" type="translate" repeatCount="indefinite" dur="0.7s" begin="-0.2s" attributeName="transform" />
-          </path>
-        </svg>
-
-        <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 translate-y-2 text-4xl text-center group-hover:translate-x-2 group-hover:-translate-y-16 group-hover:text-5xl">
-          {temperature}
+        <img src={`/icons/${getIconForWeatherCode(code,true)}`} alt="" className="w-20 scale-[110%]" />
+       
+        <h4 className="font-sans duration-300 absolute left-1/2 -translate-x-1/2 translate-y-2 text-4xl text-center group-hover:-translate-x-2 group-hover:-translate-y-16 group-hover:text-5xl">
+          {parseInt(temperature)}°C
         </h4>
       </div>
       <div className="absolute duration-300 -left-32 mt-2 font-sans group-hover:left-10">
-        <p className="text-sm">light rain</p>
-        <p className="text-sm">50% humidity</p>
+        <p className="text-sm">{getShortWeatherDescription(code)}</p>
+        <p className="text-sm">{humidity}% humidity</p>
       </div>
     </div>
   );
 }
 
 export default Card;
+
+
+function getIconForWeatherCode(code, isDaytime) {
+    if (code === 0 || code === 1) {
+        return isDaytime ? "day.svg" : "night.svg";
+    } else if (code === 2) {
+        return isDaytime ? "cloudy-day-1.svg" : "cloudy-night-1.svg";
+    } else if (code === 3) {
+        return "cloudy.svg";
+    } else if ([45, 48].includes(code)) {
+        return "cloudy-day-3.svg";
+    } else if ([51, 53, 55].includes(code)) {
+        return "rainy-1.svg";
+    } else if ([61, 63, 65].includes(code)) {
+        return "rainy-3.svg";
+    } else if ([66, 67].includes(code)) {
+        return "rainy-5.svg";
+    } else if ([71, 73, 75].includes(code)) {
+        return "snowy-1.svg";
+    } else if (code === 77) {
+        return "snowy-6.svg";
+    } else if ([80, 81, 82].includes(code)) {
+        return "rainy-6.svg";
+    } else if ([85, 86].includes(code)) {
+        return "snowy-5.svg";
+    } else if ([95, 96, 99].includes(code)) {
+        return "thunder.svg";
+    } else {
+        return "weather.svg";
+    }
+}
+
+function getShortWeatherDescription(code) {
+    if (code === 0) {
+        return "Clear sky";
+    } else if (code === 1) {
+        return "Mainly clear";
+    } else if (code === 2) {
+        return "Partly cloudy";
+    } else if (code === 3) {
+        return "Overcast";
+    } else if (code === 45 || code === 48) {
+        return "Fog";
+    } else if (code === 51) {
+        return "Light drizzle";
+    } else if (code === 53) {
+        return "Moderate drizzle";
+    } else if (code === 55) {
+        return "Dense drizzle";
+    } else if (code === 56) {
+        return "Light freezing drizzle";
+    } else if (code === 57) {
+        return "Dense freezing drizzle";
+    } else if (code === 61) {
+        return "Light rain";
+    } else if (code === 63) {
+        return "Moderate rain";
+    } else if (code === 65) {
+        return "Heavy rain";
+    } else if (code === 66) {
+        return "Light freezing rain";
+    } else if (code === 67) {
+        return "Heavy freezing rain";
+    } else if (code === 71) {
+        return "Light snow";
+    } else if (code === 73) {
+        return "Moderate snow";
+    } else if (code === 75) {
+        return "Heavy snow";
+    } else if (code === 77) {
+        return "Snow grains";
+    } else if (code === 80) {
+        return "Slight rain showers";
+    } else if (code === 81) {
+        return "Moderate rain showers";
+    } else if (code === 82) {
+        return "Violent rain showers";
+    } else if (code === 85) {
+        return "Slight snow showers";
+    } else if (code === 86) {
+        return "Heavy snow showers";
+    } else if (code === 95) {
+        return "Thunderstorm";
+    } else if (code === 96) {
+        return "Thunderstorm with slight hail";
+    } else if (code === 99) {
+        return "Thunderstorm with heavy hail";
+    } else {
+        return "Unknown";
+    }
+}
+
+
