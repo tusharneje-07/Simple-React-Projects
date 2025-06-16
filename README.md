@@ -19,6 +19,8 @@ Click any project to explore its source code:
 * [📊 GitHub Stats](./GitHub-Stats/)
 - - [📊 GitHub Stats](./GitHub-Stats/github-stats/)
 - - [📊 GitHub Stats (API)](./GitHub-Stats/api-github-stats/)
+* [☁️ Weather App](./Weather-App/weather-app/)
+
 
 ---
 
