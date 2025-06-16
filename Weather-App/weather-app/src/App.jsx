@@ -6,6 +6,7 @@ function App() {
   const [temp, setTemp] = useState(0)
   const [code, setCode] = useState(0)
   const [humidity, setHumidity] = useState(0)
+  const [hourly_data, setHourly_data] = useState({})
   useEffect(() => {
     fetch("https://api.open-meteo.com/v1/forecast?latitude=18.51957&longitude=73.85535&current_weather=true&hourly=relativehumidity_2m,weathercode,temperature_2m")
       .then((response) => response.json())
@@ -13,15 +14,20 @@ function App() {
         setTemp(data.current_weather.temperature)
         setCode(data.current_weather.weathercode)
         setHumidity(getCurrentHumidity(data.hourly))
+        setHourly_data({
+          time: data.hourly.time,
+          temperature_2m: data.hourly.temperature_2m,
+          weathercode: data.hourly.weathercode,
+          relativehumidity_2m: data.hourly.relativehumidity_2m
+        })
       })
       .catch((error) => console.error('Error fetching weather data:', error))
 
   }, [])
   return (
     <>
-      <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen'>
-        <Card temperature={temp} code={code} humidity={humidity}/>
-        {/* <h1 className='text-white text-2xl'>{count}</h1> */}
+      <div className='flex w-full flex-row justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen'>
+        <Card temperature={temp} code={code} humidity={humidity} hourly_data={hourly_data}/>
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 import TimeCard from './TimeCard';
 import { getIconForWeatherCode,getShortWeatherDescription } from './Functions';
-const Card = ({ temperature = 0, code = 0, humidity = 0, className }) => {
+const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, className }) => {
     return (
 
         <div className='flex flex-col items-center justify-center gap-4'>
@@ -30,7 +30,23 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, className }) => {
 
 
         {/* Uncomment this and make Hourly forcast */}
-        <TimeCard time="10:00" temperature="20" code={2} />
+        {console.log(hourly_data)}
+        
+        <div className='w-[500px] flex flex-row justify-center items-center gap-4 overflow-scroll p-4 m-4'>
+            {
+            Object.keys(hourly_data).length > 0 && hourly_data.time.map((time, index) => (
+                <TimeCard
+                    key={index}
+                    date={time.split('T')[0].split('-').reverse().join('/')}
+                    time={time.split('T')[1].slice(0, 5)}
+                    temperature={hourly_data.temperature_2m[index]}
+                    code={hourly_data.weathercode[index]}
+                    className="flex-shrink-0"
+                />
+            ))
+        }
+        </div>
+
 
         </div>
 
