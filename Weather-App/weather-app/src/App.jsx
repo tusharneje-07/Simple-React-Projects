@@ -19,7 +19,7 @@ function App() {
   }, [])
   return (
     <>
-      <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen flex items-center justify-center'>
+      <div className='flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen'>
         <Card temperature={temp} code={code} humidity={humidity}/>
         {/* <h1 className='text-white text-2xl'>{count}</h1> */}
       </div>
