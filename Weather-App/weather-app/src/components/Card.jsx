@@ -31,7 +31,7 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, isDay
                 {/* <h3 className="text-xl text-center">Today</h3> */}
 
                 <div className="gap-4 relative">
-                    <img src={`/icons/${getIconForWeatherCode(code, true)}`} alt="" className="w-20 scale-[120%]" />
+                    <img src={`/icons/${getIconForWeatherCode(code, isDay)}`} alt="" className="w-20 scale-[120%]" />
 
                     {document.getElementById('web-icon')?.setAttribute('href', `/icons/${getIconForWeatherCode(code, isDay)}`)}
 
