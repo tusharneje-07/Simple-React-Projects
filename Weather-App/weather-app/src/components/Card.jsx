@@ -6,10 +6,17 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, isDay
 
         <div className='flex flex-col items-center justify-center gap-4'>
 
-            <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden h-48 rounded-3xl p-4 w-56 
+            <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden h-52 rounded-3xl p-4 w-56 
   backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl hover:scale-105 hover:shadow-lg hover:bg-white/20">
 
-                <h3 className="text-xl text-center">Today</h3>
+                <div className="flex justify-center text-center items-center align-middle rounded-xl gap-2 drop-shadow-sm backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl px-3 py-1 font-sans w-min mb-5">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className='w-5 h-5 fill-white'><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+                    </span>
+                    Pune
+                </div>
+
+                {/* <h3 className="text-xl text-center">Today</h3> */}
 
                 <div className="gap-4 relative">
                     <img src={`/icons/${getIconForWeatherCode(code, true)}`} alt="" className="w-20 scale-[110%]" />
