@@ -9,7 +9,7 @@ function App() {
   const [hourly_data, setHourly_data] = useState({})
   const [isDay, setIsDay] = useState(true)
   useEffect(() => {
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=18.51957&longitude=73.85535&current_weather=true&hourly=relativehumidity_2m,weathercode,temperature_2m")
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=18.51957&longitude=73.85535&current_weather=true&hourly=relativehumidity_2m,weathercode,temperature_2m,winddirection_10m,wind_speed_10m&timezone=Asia%2FKolkata")
       .then((response) => response.json())
       .then((data) => {
         setTemp(data.current_weather.temperature)
@@ -19,7 +19,9 @@ function App() {
           time: data.hourly.time,
           temperature_2m: data.hourly.temperature_2m,
           weathercode: data.hourly.weathercode,
-          relativehumidity_2m: data.hourly.relativehumidity_2m
+          relativehumidity_2m: data.hourly.relativehumidity_2m,
+          wind_speed_10m: data.hourly.wind_speed_10m,
+          winddirection_10m: data.hourly.winddirection_10m
         })
 
         new Date().getHours() >= 6 && new Date().getHours() < 18 ? setIsDay(true) : setIsDay(false)
