@@ -6,8 +6,11 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, isDay
 
         <div className='flex flex-col items-center justify-center gap-4'>
 
-            <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden h-52 rounded-3xl p-4 w-56 
+            <div className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden h-56 rounded-3xl p-4 w-56 
   backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl hover:scale-105 hover:shadow-lg hover:bg-white/20">
+                
+                <div className='flex w-full flex-row justify-between'>
+
 
                 <div className="flex justify-center text-center items-center align-middle rounded-xl gap-2 drop-shadow-sm backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl px-3 py-1 font-sans w-min mb-5">
                     <span>
@@ -16,10 +19,19 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, isDay
                     Pune
                 </div>
 
+                <div className="flex justify-center text-center items-center align-middle rounded-xl gap-2 drop-shadow-sm backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl px-3 py-1 font-sans w-min mb-5">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className='w-5 h-5 fill-white'><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/>
+                        </svg>
+                    </span>
+                    {new Date().toISOString().split('T')[1].split('.')[0].substring(0,5)}
+                </div>
+                </div>
+
                 {/* <h3 className="text-xl text-center">Today</h3> */}
 
                 <div className="gap-4 relative">
-                    <img src={`/icons/${getIconForWeatherCode(code, true)}`} alt="" className="w-20 scale-[110%]" />
+                    <img src={`/icons/${getIconForWeatherCode(code, true)}`} alt="" className="w-20 scale-[120%]" />
 
                     {document.getElementById('web-icon')?.setAttribute('href', `/icons/${getIconForWeatherCode(code, isDay)}`)}
 
