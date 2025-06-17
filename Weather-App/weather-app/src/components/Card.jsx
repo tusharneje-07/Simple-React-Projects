@@ -59,6 +59,7 @@ const Card = ({ temperature = 0, code = 0, humidity = 0, hourly_data = {}, isDay
                                 code={hourly_data.weathercode[index]}
                                 isDay={new Date(time).getHours() >= 6 && new Date(time).getHours() < 18 ? true : false}
                                 className="flex-shrink-0"
+                                humidity={hourly_data.relativehumidity_2m[index]}
                             />
                         ))}
                     </div>
