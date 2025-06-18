@@ -14,6 +14,12 @@ A simple and user-friendly react weather application
 - Display's Weather
 - Uses Open Metro's API
 
+
+## 🌐 API Use
+- `https://api.open-meteo.com/v1/forecast?latitude=18.51957&longitude=73.85535&current_weather=true&hourly=relativehumidity_2m,weathercode,temperature_2m,winddirection_10m,wind_speed_10m&timezone=Asia%2FKolkata`
+
+- Open Metro Weather API [`https://open-meteo.com/`](https://open-meteo.com/)
+
 ## 📸 Screenshot
 
 ![Weather-App](./ss.png)
