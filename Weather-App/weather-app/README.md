@@ -11,11 +11,12 @@ A simple and user-friendly react weather application
 
 ## 📦 Features
 
-- Display's Wather
+- Display's Weather
+- Uses Open Metro's API
 
 ## 📸 Screenshot
 
-![Currency Converter UI](./ss.png)
+![Weather-App](./ss.png)
 
 
 ## 🚀 Getting Started
